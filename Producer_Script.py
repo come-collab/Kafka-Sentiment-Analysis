@@ -2,12 +2,17 @@ import praw
 from kafka import KafkaProducer
 import json
 from kafka.vendor import six
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+api_key = os.getenv("API_KEY")
+user_name = os.getenv("USER_NAME")
 #Setting up the Reddit API
 reddit = praw.Reddit(
     client_id='vcvPFQWZnZ5boS_GdaWfdg',
-    client_secret='4-CZKEgmQznkTqF_LVNMskj2rAg8nQ',
-    user_agent='my-app by Shot-Taste5816'
+    client_secret=api_key,
+    user_agent='my-app by {user_name}'
 )
 
 producer = KafkaProducer(
