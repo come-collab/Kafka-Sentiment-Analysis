@@ -1,6 +1,7 @@
 import praw
 from kafka import KafkaProducer
 import json
+from kafka.vendor import six
 
 #Setting up the Reddit API
 reddit = praw.Reddit(
